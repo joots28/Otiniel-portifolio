@@ -86,4 +86,30 @@
     if (formNote) formNote.textContent = "Seu aplicativo de e-mail será aberto para você revisar e enviar a mensagem.";
     window.location.href = "mailto:otinieljonathan2804@gmail.com?subject=" + subject + "&body=" + body;
   });
+
+  // Animações de entrada progressiva: leves, acessíveis e sem dependências.
+  const motionReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const revealTargets = document.querySelectorAll(
+    ".section-heading, .featured-project, .compact-card, .about-lead, .principles > div, .stack-board, .contact-layout"
+  );
+  if (!motionReduced && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("reveal-ready");
+    revealTargets.forEach((element) => element.classList.add("reveal-on-scroll"));
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-revealed");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
+    revealTargets.forEach((element) => revealObserver.observe(element));
+  }
+
+  // Fecha a navegação visualmente após selecionar uma seção, mas mantém a barra fixa.
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.forEach((item) => item.classList.toggle("is-active", item === link));
+    });
+  });
+
 })();
