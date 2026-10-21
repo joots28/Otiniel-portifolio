@@ -84,14 +84,25 @@
   const initialActive = navLinks.find((link) => link.classList.contains("is-active")) || navLinks[0];
   setActiveNav(initialActive);
   navLinks.forEach((link) => link.addEventListener("click", () => setActiveNav(link)));
-  window.addEventListener("resize", () => {
+  const refreshLiquidIndicator = () => {
     const active = navLinks.find((link) => link.classList.contains("is-active"));
     if (active) window.requestAnimationFrame(() => updateLiquidIndicator(active));
-  });
-  window.addEventListener("load", () => {
-    const active = navLinks.find((link) => link.classList.contains("is-active"));
-    if (active) updateLiquidIndicator(active);
-  }, { once: true });
+  };
+  window.addEventListener("resize", refreshLiquidIndicator, { passive: true });
+  window.addEventListener("orientationchange", refreshLiquidIndicator, { passive: true });
+  window.addEventListener("pageshow", refreshLiquidIndicator);
+  window.addEventListener("load", refreshLiquidIndicator, { once: true });
+
+  // Recalcula quando fontes, orientação ou largura dos itens mudarem após o primeiro layout.
+  if ("ResizeObserver" in window && nav) {
+    try {
+      const navResizeObserver = new ResizeObserver(refreshLiquidIndicator);
+      navResizeObserver.observe(nav);
+      navLinks.forEach((link) => navResizeObserver.observe(link));
+    } catch {
+      // O resize listener permanece como fallback em navegadores antigos.
+    }
+  }
 
   if ("IntersectionObserver" in window && sections.length) {
     try {
