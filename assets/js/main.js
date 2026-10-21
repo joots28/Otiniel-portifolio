@@ -45,26 +45,78 @@
     });
   });
 
-  // Marca a seção visível sem bloquear o funcionamento normal dos links.
+  // Barra inferior persistente com indicador líquido.
+  const nav = document.querySelector(".bottom-nav");
   const navLinks = Array.from(document.querySelectorAll(".nav-item"));
   const sections = navLinks
-    .map((link) => document.querySelector(link.getAttribute("href")))
+    .map((link) => {
+      const href = link.getAttribute("href") || "";
+      return href.startsWith("#") ? document.getElementById(href.slice(1)) : null;
+    })
     .filter(Boolean);
 
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!visible) return;
-      navLinks.forEach((link) => {
-        const active = link.getAttribute("href") === "#" + visible.target.id;
-        link.classList.toggle("is-active", active);
-        if (active) link.setAttribute("aria-current", "page");
-        else link.removeAttribute("aria-current");
+  function updateLiquidIndicator(activeLink) {
+    if (!nav || !activeLink) return;
+    const navRect = nav.getBoundingClientRect();
+    const itemRect = activeLink.getBoundingClientRect();
+    nav.style.setProperty("--liquid-left", Math.max(0, itemRect.left - navRect.left - nav.clientLeft) + "px");
+    nav.style.setProperty("--liquid-width", itemRect.width + "px");
+    nav.style.setProperty("--liquid-height", Math.max(36, itemRect.height) + "px");
+    nav.style.setProperty("--liquid-top", Math.max(3, itemRect.top - navRect.top - nav.clientTop) + "px");
+  }
+
+  function setActiveNav(activeLink) {
+    if (!activeLink) return;
+    navLinks.forEach((link) => {
+      const active = link === activeLink;
+      link.classList.toggle("is-active", active);
+      if (active) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
+    });
+    window.requestAnimationFrame(() => updateLiquidIndicator(activeLink));
+  }
+
+  const initialActive = navLinks.find((link) => link.classList.contains("is-active")) || navLinks[0];
+  setActiveNav(initialActive);
+  navLinks.forEach((link) => link.addEventListener("click", () => setActiveNav(link)));
+  window.addEventListener("resize", () => {
+    const active = navLinks.find((link) => link.classList.contains("is-active"));
+    if (active) window.requestAnimationFrame(() => updateLiquidIndicator(active));
+  });
+  window.addEventListener("load", () => {
+    const active = navLinks.find((link) => link.classList.contains("is-active"));
+    if (active) updateLiquidIndicator(active);
+  }, { once: true });
+
+  if ("IntersectionObserver" in window && sections.length) {
+    try {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        const link = navLinks.find((candidate) => candidate.getAttribute("href") === "#" + visible.target.id);
+        if (link) setActiveNav(link);
+      }, { rootMargin: "-20% 0px -58% 0px", threshold: [0, 0.12, 0.3, 0.55] });
+      sections.forEach((section) => sectionObserver.observe(section));
+    } catch {
+      // A navegação por âncoras continua funcional sem o observador.
+    }
+  }
+
+  // Efeito de luz acompanha o mouse; desligado em telas touch e movimento reduzido.
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (!reduceMotion && finePointer) {
+    let pointerFrame = 0;
+    document.addEventListener("pointermove", (event) => {
+      if (pointerFrame) return;
+      pointerFrame = window.requestAnimationFrame(() => {
+        document.documentElement.style.setProperty("--pointer-x", event.clientX + "px");
+        document.documentElement.style.setProperty("--pointer-y", event.clientY + "px");
+        pointerFrame = 0;
       });
-    }, { rootMargin: "-25% 0px -55% 0px", threshold: [0, 0.15, 0.35, 0.6] });
-    sections.forEach((section) => observer.observe(section));
+    }, { passive: true });
   }
 
   // Formulário sem backend: valida e abre o cliente de e-mail do visitante.
@@ -86,4 +138,24 @@
     if (formNote) formNote.textContent = "Seu aplicativo de e-mail será aberto para você revisar e enviar a mensagem.";
     window.location.href = "mailto:otinieljonathan2804@gmail.com?subject=" + subject + "&body=" + body;
   });
+
+  // Animações de entrada progressiva: leves, acessíveis e sem dependências.
+  const motionReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const revealTargets = document.querySelectorAll(
+    ".section-heading, .featured-project, .compact-card, .about-lead, .principles > div, .stack-board, .contact-layout"
+  );
+  if (!motionReduced && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("reveal-ready");
+    revealTargets.forEach((element) => element.classList.add("reveal-on-scroll"));
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-revealed");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
+    revealTargets.forEach((element) => revealObserver.observe(element));
+  }
+
+
 })();
