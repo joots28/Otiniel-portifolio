@@ -20,79 +20,73 @@
     });
   });
 
-  // Barra inferior persistente com indicador líquido.
-  const nav = document.querySelector(".bottom-nav");
-  const navLinks = Array.from(document.querySelectorAll(".nav-item"));
-  const sections = navLinks
-    .map((link) => {
-      const href = link.getAttribute("href") || "";
-      return href.startsWith("#") ? document.getElementById(href.slice(1)) : null;
-    })
-    .filter(Boolean);
+  // Navegação superior sólida e responsiva (sem glass/liquid indicator).
+  const menuToggle = document.getElementById("menuToggle");
+  const siteNav = document.getElementById("siteNav");
+  const navLinks = siteNav ? Array.from(siteNav.querySelectorAll('a[href^="#"]')) : [];
 
-  function updateLiquidIndicator(activeLink) {
-    if (!nav || !activeLink) return;
+  const closeMenu = () => {
+    if (!menuToggle || !siteNav) return;
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Abrir menu");
+    siteNav.classList.remove("is-open");
+  };
 
-    // Recalcula após a mudança de layout para manter o indicador alinhado.
-    window.requestAnimationFrame(() => {
-      const navRect = nav.getBoundingClientRect();
-      const itemRect = activeLink.getBoundingClientRect();
-      const left = itemRect.left - navRect.left - nav.clientLeft;
-      nav.style.setProperty("--liquid-left", Math.max(4, left) + "px");
-      nav.style.setProperty("--liquid-width", Math.max(24, itemRect.width) + "px");
-      nav.style.setProperty("--liquid-height", Math.max(36, itemRect.height) + "px");
-      nav.style.setProperty("--liquid-top", Math.max(3, itemRect.top - navRect.top - nav.clientTop) + "px");
+  if (menuToggle && siteNav) {
+    menuToggle.addEventListener("click", () => {
+      const open = menuToggle.getAttribute("aria-expanded") !== "true";
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+      siteNav.classList.toggle("is-open", open);
     });
+
+    navLinks.forEach((link) => link.addEventListener("click", closeMenu));
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape" || menuToggle.getAttribute("aria-expanded") !== "true") return;
+      closeMenu();
+      menuToggle.focus();
+    });
+
+    document.addEventListener("click", (event) => {
+      if (menuToggle.getAttribute("aria-expanded") !== "true") return;
+      if (siteNav.contains(event.target) || menuToggle.contains(event.target)) return;
+      closeMenu();
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 820) closeMenu();
+    }, { passive: true });
   }
 
-  function setActiveNav(activeLink) {
-    if (!activeLink) return;
+  // Active state follows the visible section without moving/resizing the menu.
+  const observedSections = navLinks
+    .map((link) => document.getElementById((link.getAttribute("href") || "").slice(1)))
+    .filter(Boolean);
+
+  const setActiveLink = (activeLink) => {
     navLinks.forEach((link) => {
       const active = link === activeLink;
       link.classList.toggle("is-active", active);
-      if (active) link.setAttribute("aria-current", "page");
+      if (active) link.setAttribute("aria-current", "location");
       else link.removeAttribute("aria-current");
     });
-    window.requestAnimationFrame(() => updateLiquidIndicator(activeLink));
-  }
-
-  const initialActive = navLinks.find((link) => link.classList.contains("is-active")) || navLinks[0];
-  setActiveNav(initialActive);
-  navLinks.forEach((link) => link.addEventListener("click", () => setActiveNav(link)));
-  const refreshLiquidIndicator = () => {
-    const active = navLinks.find((link) => link.classList.contains("is-active"));
-    if (active) window.requestAnimationFrame(() => updateLiquidIndicator(active));
   };
-  window.addEventListener("resize", refreshLiquidIndicator, { passive: true });
-  window.addEventListener("orientationchange", refreshLiquidIndicator, { passive: true });
-  window.addEventListener("pageshow", refreshLiquidIndicator);
-  window.addEventListener("load", refreshLiquidIndicator, { once: true });
 
-  // Recalcula quando fontes, orientação ou largura dos itens mudarem após o primeiro layout.
-  if ("ResizeObserver" in window && nav) {
-    try {
-      const navResizeObserver = new ResizeObserver(refreshLiquidIndicator);
-      navResizeObserver.observe(nav);
-      navLinks.forEach((link) => navResizeObserver.observe(link));
-    } catch {
-      // O resize listener permanece como fallback em navegadores antigos.
-    }
-  }
+  const initialHashLink = navLinks.find((link) => link.hash && link.hash === window.location.hash);
+  if (initialHashLink) setActiveLink(initialHashLink);
 
-  if ("IntersectionObserver" in window && sections.length) {
-    try {
-      const sectionObserver = new IntersectionObserver((entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (!visible) return;
-        const link = navLinks.find((candidate) => candidate.getAttribute("href") === "#" + visible.target.id);
-        if (link) setActiveNav(link);
-      }, { rootMargin: "-20% 0px -58% 0px", threshold: [0, 0.12, 0.3, 0.55] });
-      sections.forEach((section) => sectionObserver.observe(section));
-    } catch {
-      // A navegação por âncoras continua funcional sem o observador.
-    }
+  if ("IntersectionObserver" in window && observedSections.length) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      const link = navLinks.find((candidate) => candidate.hash === "#" + visible.target.id);
+      if (link) setActiveLink(link);
+    }, { rootMargin: "-25% 0px -60% 0px", threshold: [0.1, 0.25, 0.45] });
+
+    observedSections.forEach((section) => sectionObserver.observe(section));
   }
 
   // Efeito de luz acompanha o mouse; desligado em telas touch e movimento reduzido.
