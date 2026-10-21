@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-  <defs><linearGradient id="metal" x1="8%" y1="5%" x2="92%" y2="95%"><stop stop-color="#D9C9EF"/><stop offset=".52" stop-color="#B9A0DF"/><stop offset="1" stop-color="#8DB7D8"/></linearGradient><filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.2"/></filter></defs>
-  <path d="M34 11H92L117 36V92L92 117H36L11 92V36Z" fill="#111017" stroke="#B9A0DF" stroke-opacity=".28" stroke-width="8" filter="url(#glow)"/>
-  <path d="M34 11H92L117 36V92L92 117H36L11 92V36Z" fill="#111017" stroke="url(#metal)" stroke-width="1.8" stroke-linejoin="miter"/>
-  <path d="M32 89V39L96 91V39" fill="none" stroke="url(#metal)" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
-  <path d="M64 15L72 29L64 39L56 29Z" fill="#F3EFE7"/><path d="M64 39V108" stroke="#B9A0DF" stroke-width="1.4"/>
-  <path d="M20 30L28 34L20 38M108 90L100 94L108 98" fill="none" stroke="#8DB7D8" stroke-width="1.4" stroke-linecap="square"/>
-  <path d="M43 102L64 108L85 102" fill="none" stroke="#B9A0DF" stroke-opacity=".6" stroke-width="1"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#050505"/><rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+  <path d="M11 11H53M32 12V55" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="square" opacity=".78"/>
+  <path d="M13 12H51M34 15V54" fill="none" stroke="#ffffff" stroke-width="1.15" opacity=".18"/>
+  <path d="M8 22L18.5 15.5L29 22V43L18.5 49.5L8 43Z" fill="#050505" stroke="#f1eee8" stroke-width="3.5" stroke-linejoin="miter"/>
+  <path d="M25 50V16H31L44 36V16H52V50H46L33 30V50Z" fill="#ffffff"/>
+  <path d="M26.5 48V19H29.7L44.8 42V18.5H49.6" fill="none" stroke="#ffffff" stroke-width="1.2" opacity=".2"/>
+  <path d="M7 30H11M47 23H55M41 53H49" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="square"/>
 </svg>
