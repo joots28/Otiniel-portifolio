@@ -29,7 +29,11 @@ python -m http.server 8000
 ```
 Depois visite `http://localhost:8000`.
 
-### Prévia mobile\n\nAbra `preview-mobile.html` no GitHub Pages para conferir a versão responsiva dentro de uma moldura de dispositivo. Use **Abrir direto** para testar a página sem moldura. A prévia usa a aplicação real, não uma captura de tela.\n\n## Publicação
+### Prévia mobile
+
+Abra `preview-mobile.html` no GitHub Pages para conferir a versão responsiva dentro de uma moldura de dispositivo. Use **Abrir direto** para testar a página sem moldura. A prévia usa a aplicação real, não uma captura de tela.
+
+## Publicação
 O site é estático e pode ser hospedado gratuitamente em GitHub Pages para um repositório público. Antes de declarar o site publicado, confira a branch e a fonte configuradas em **Settings → Pages** e valide um workflow concluído com sucesso.
 
 ## Escopo do primeiro release
