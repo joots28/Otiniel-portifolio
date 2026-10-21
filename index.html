@@ -38,9 +38,6 @@
         <a href="#contato">Contato</a>
       </nav>
       <div class="header-actions">
-        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Ativar tema claro" title="Alternar tema">
-          <span class="theme-icon" aria-hidden="true">☼</span><span class="theme-label">Tema claro</span>
-        </button>
         <a class="header-cta" href="#contato">Vamos conversar <span aria-hidden="true">↗</span></a>
         <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-controls="siteNav" aria-expanded="false">
           <span></span><span></span>
@@ -59,7 +56,8 @@
         <p class="hero-description">Sou <strong>Jonathan Otiniel</strong>. Estudo e construo software conectando interface, regras de negócio, APIs e dados — com atenção à estrutura, à clareza e à experiência de quem usa.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#projetos">Explorar projetos <span aria-hidden="true">↘</span></a>
-          <a class="button button-secondary" href="assets/cv/Jonathan-Otiniel-Curriculo.pdf" download>Currículo PDF <span aria-hidden="true">↓</span></a>
+          <a class="button button-secondary" href="curriculo-jonathan.html">Ver currículo <span aria-hidden="true">↗</span></a>
+          <a class="button button-secondary" href="assets/cv/Jonathan-Otiniel-Curriculo.pdf" download>Baixar PDF <span aria-hidden="true">↓</span></a>
         </div>
         <div class="hero-footline">
           <span><i class="footline-mark" aria-hidden="true"></i> APRENDIZADO EM MOVIMENTO</span>
@@ -75,15 +73,37 @@
           <div class="orbit orbit-a" aria-hidden="true"><i></i></div>
           <div class="orbit orbit-b" aria-hidden="true"><i></i></div>
           <div class="orbit orbit-c" aria-hidden="true"><i></i></div>
-          <div class="cube-scene" aria-hidden="true">
-            <div class="cube">
-              <div class="cube-face face-front"><span>O</span><small>STRUCTURE</small></div>
-              <div class="cube-face face-back"><span>01</span></div>
-              <div class="cube-face face-right"><span>{ }</span></div>
-              <div class="cube-face face-left"><span>API</span></div>
-              <div class="cube-face face-top"><span>LOGIC</span></div>
-              <div class="cube-face face-bottom"><span>DATA</span></div>
-            </div>
+          <div class="atom-scene" aria-label="Átomo inspirado no símbolo do React">
+            <svg class="atom-visual" viewBox="0 0 400 400" role="img" aria-labelledby="atomTitle">
+              <title id="atomTitle">Átomo com três órbitas elípticas e um núcleo central</title>
+              <defs>
+                <radialGradient id="atomCoreGlow">
+                  <stop offset="0" stop-color="#64b5ff" stop-opacity=".5"/>
+                  <stop offset="1" stop-color="#756dff" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="atomOrbitStroke" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#64b5ff"/>
+                  <stop offset=".52" stop-color="#8a7dff"/>
+                  <stop offset="1" stop-color="#756dff"/>
+                </linearGradient>
+              </defs>
+              <circle class="atom-aura" cx="200" cy="200" r="112" fill="url(#atomCoreGlow)"/>
+              <g class="atom-orbit-group atom-orbit-one">
+                <ellipse cx="200" cy="200" rx="151" ry="55" fill="none" stroke="url(#atomOrbitStroke)" stroke-width="2.2"/>
+                <circle class="atom-electron" cx="351" cy="200" r="9"/>
+              </g>
+              <g class="atom-orbit-group atom-orbit-two">
+                <ellipse cx="200" cy="200" rx="151" ry="55" fill="none" stroke="url(#atomOrbitStroke)" stroke-width="2.2"/>
+                <circle class="atom-electron" cx="351" cy="200" r="9"/>
+              </g>
+              <g class="atom-orbit-group atom-orbit-three">
+                <ellipse cx="200" cy="200" rx="151" ry="55" fill="none" stroke="url(#atomOrbitStroke)" stroke-width="2.2"/>
+                <circle class="atom-electron" cx="351" cy="200" r="9"/>
+              </g>
+              <circle class="atom-nucleus-halo" cx="200" cy="200" r="30"/>
+              <circle class="atom-nucleus" cx="200" cy="200" r="13"/>
+            </svg>
+            <div class="atom-caption mono">REACTIVE SYSTEMS / 01</div>
           </div>
           <div class="hero-logo-plaque"><img src="assets/brand/atom.svg" alt="" width="54" height="54"><span>OTINIEL / DEV</span></div>
           <span class="coordinate coord-a mono">X: 04.28</span>
@@ -134,14 +154,14 @@
           <p class="mono">SELEÇÃO DE PROJETOS <span>/ 07</span></p>
           <div class="project-filters" role="group" aria-label="Filtrar projetos">
             <button class="filter-chip is-selected" type="button" data-filter="all" aria-pressed="true">Todos</button>
-            <button class="filter-chip" type="button" data-filter="web" aria-pressed="false">Web</button>
+            <button class="filter-chip" type="button" data-filter="frontend" aria-pressed="false">Front-end</button>
             <button class="filter-chip" type="button" data-filter="backend" aria-pressed="false">Back-end</button>
             <button class="filter-chip" type="button" data-filter="academic" aria-pressed="false">Acadêmicos</button>
           </div>
         </div>
 
         <div class="featured-project-grid" id="projectsGrid">
-          <article class="project-card project-featured tilt-card reveal-card" data-category="web" data-project="eleinexus">
+          <article class="project-card project-featured tilt-card reveal-card" data-category="frontend" data-project="eleinexus">
             <div class="project-art art-elei" aria-hidden="true"><div class="art-sphere"></div><div class="art-orbit art-orbit-one"></div><div class="art-orbit art-orbit-two"></div><span class="art-watermark">EN</span><span class="art-caption mono">CIVIC TECH / 001</span></div>
             <div class="project-content"><div class="project-topline mono"><span>01 / WEB · INFORMAÇÃO CÍVICA</span><span class="project-status"><i></i> PROJETO EM EVOLUÇÃO</span></div><h3>EleiNexus</h3><p>Uma plataforma cívica voltada a organizar informações eleitorais, propostas e referências públicas, com transparência sobre fontes e limites do conteúdo.</p><div class="tag-list"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Fontes públicas</span></div><div class="project-actions"><a class="project-link" href="projetos/eleinex.html">Estudo de caso <span aria-hidden="true">↗</span></a><a class="project-link project-link-muted" href="https://eleinexus-civico.onrender.com/" target="_blank" rel="noreferrer">Abrir site <span aria-hidden="true">↗</span></a></div></div>
           </article>
@@ -156,7 +176,7 @@
             <div class="project-content"><div class="project-topline mono"><span>03 / MODELAGEM</span><span class="project-status status-study"><i></i> PROJETO ACADÊMICO</span></div><h3>SeguroGestor</h3><p>Projeto acadêmico de gestão de seguros e sinistros, com foco em requisitos, organização das informações e modelo de dados.</p><div class="tag-list"><span>Requisitos</span><span>Modelagem de dados</span><span>Documentação</span></div><a class="project-link" href="projetos/segurogestor.html">Ver estudo de caso <span aria-hidden="true">↗</span></a></div>
           </article>
 
-          <article class="project-card tilt-card reveal-card" data-category="web" data-project="portfolio-v1">
+          <article class="project-card tilt-card reveal-card" data-category="frontend" data-project="portfolio-v1">
             <div class="project-art art-portfolio" aria-hidden="true"><div class="art-browser"><span></span><span></span><span></span><div class="browser-line"></div><div class="browser-block"></div></div><span class="art-watermark">V1</span><span class="art-caption mono">PORTFOLIO / ORIGIN</span></div>
             <div class="project-content"><div class="project-topline mono"><span>04 / EVOLUÇÃO DO PRODUTO</span><span class="project-status"><i></i> VERSÃO ANTERIOR</span></div><h3>Portfolio V1</h3><p>A primeira versão como base estrutural: HTML, CSS e JavaScript separados, conteúdo direto e publicação estática.</p><div class="tag-list"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Render</span></div><a class="project-link" href="projetos/portfolio-v1.html">Comparar a evolução <span aria-hidden="true">↗</span></a></div>
           </article>
