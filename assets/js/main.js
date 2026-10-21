@@ -2,33 +2,8 @@
   "use strict";
 
   const root = document.documentElement;
-  const themeToggle = document.getElementById("themeToggle");
-  const themeIcon = themeToggle?.querySelector(".theme-icon");
   const year = document.getElementById("year");
-
-  // O tema fica nesta sessão; nenhuma informação pessoal é armazenada.
-  let theme = "dark";
-  try {
-    const savedTheme = sessionStorage.getItem("otiniel-theme");
-    if (savedTheme === "light" || savedTheme === "dark") theme = savedTheme;
-  } catch {
-    // O site continua funcional mesmo quando o armazenamento está bloqueado.
-  }
-
-  function applyTheme(nextTheme) {
-    theme = nextTheme;
-    root.dataset.theme = theme;
-    if (themeIcon) themeIcon.textContent = theme === "dark" ? "◐" : "◑";
-    themeToggle?.setAttribute("aria-label", theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro");
-    try {
-      sessionStorage.setItem("otiniel-theme", theme);
-    } catch {
-      // Preferência temporária, sem impedir a navegação.
-    }
-  }
-
-  applyTheme(theme);
-  themeToggle?.addEventListener("click", () => applyTheme(theme === "dark" ? "light" : "dark"));
+  root.dataset.theme = "dark";
   if (year) year.textContent = String(new Date().getFullYear());
 
   // Expansão acessível dos detalhes do projeto.

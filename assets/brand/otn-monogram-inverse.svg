@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs><linearGradient id="metal" x1="8%" y1="5%" x2="92%" y2="95%"><stop stop-color="#665080"/><stop offset=".52" stop-color="#6A4C8B"/><stop offset="1" stop-color="#3E6887"/></linearGradient><filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.2"/></filter></defs>
+  <path d="M34 11H92L117 36V92L92 117H36L11 92V36Z" fill="#FAF8FC" stroke="#6A4C8B" stroke-opacity=".28" stroke-width="8" filter="url(#glow)"/>
+  <path d="M34 11H92L117 36V92L92 117H36L11 92V36Z" fill="#FAF8FC" stroke="url(#metal)" stroke-width="1.8" stroke-linejoin="miter"/>
+  <path d="M32 89V39L96 91V39" fill="none" stroke="url(#metal)" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M64 15L72 29L64 39L56 29Z" fill="#211A2A"/><path d="M64 39V108" stroke="#6A4C8B" stroke-width="1.4"/>
+  <path d="M20 30L28 34L20 38M108 90L100 94L108 98" fill="none" stroke="#3E6887" stroke-width="1.4" stroke-linecap="square"/>
+  <path d="M43 102L64 108L85 102" fill="none" stroke="#6A4C8B" stroke-opacity=".6" stroke-width="1"/>
+</svg>

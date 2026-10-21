@@ -1,0 +1,108 @@
+%PDF-1.4
+%ASCII
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R >> >> /Contents 7 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier /Encoding /WinAnsiEncoding >>
+endobj
+7 0 obj
+<< /Length 5594 >>
+stream
+0.9804 0.9765 0.9882 rg 0 0 595 842 re f
+0.0627 0.0510 0.0824 rg 0 730 595 112 re f
+0.8471 0.7804 0.9608 rg BT /F3 7 Tf 48 815 Td (OTINIEL / PERFIL PROFISSIONAL) Tj ET
+1.0000 1.0000 1.0000 rg BT /F2 25 Tf 48 783 Td (Jonathan Otiniel) Tj ET
+0.8431 0.8157 0.8863 rg BT /F1 10 Tf 48 763 Td (Desenvolvedor de sistemas em forma\347\343o) Tj ET
+0.7216 0.6824 0.7804 rg BT /F3 7 Tf 48 747 Td (DESENVOLVIMENTO WEB | APIs | SISTEMAS FULL-STACK) Tj ET
+0.8471 0.7804 0.9608 RG 2.5 w 522 758 m 546 782 l S
+0.8471 0.7804 0.9608 RG 2.5 w 546 782 m 570 758 l S
+0.8471 0.7804 0.9608 RG 2.5 w 522 758 m 522 787 l S
+0.8471 0.7804 0.9608 RG 2.5 w 570 758 m 570 787 l S
+0.8471 0.7804 0.9608 RG 1 w 522 787 m 570 787 l S
+0.4510 0.3255 0.6078 rg BT /F2 7 Tf 48 708 Td (CONTATO) Tj ET
+0.8627 0.8392 0.8980 RG 0.7 w 48 653 m 547 653 l S
+0.0980 0.0824 0.1216 rg BT /F1 8 Tf 48 691 Td (otinieljonathan2804@gmail.com | github.com/joots28 | LinkedIn: Jonathan Otiniel) Tj ET
+0.4510 0.3255 0.6078 rg BT /F2 9 Tf 48 660 Td (PERFIL) Tj ET
+0.0980 0.0824 0.1216 rg BT /F1 8 Tf 48 638 Td (Estudante de Desenvolvimento de Sistemas na Etec, com projetos acad\352micos e estudos pr\341ticos) Tj ET
+0.0980 0.0824 0.1216 rg BT /F1 8 Tf 48 626 Td (em interfaces web, l\363gica de programa\347\343o, aplica\347\365es desktop, APIs e integra\347\343o com banco de dados.) Tj ET
+0.0980 0.0824 0.1216 rg BT /F1 8 Tf 48 614 Td (Interesse em c\363digo organizado, separa\347\343o de responsabilidades e sistemas que possam evoluir.) Tj ET
+0.4510 0.3255 0.6078 rg BT /F2 9 Tf 48 588 Td (DIRECIONAMENTO PROFISSIONAL) Tj ET
+0.8627 0.8392 0.8980 RG 0.7 w 48 581 m 547 581 l S
+0.0980 0.0824 0.1216 rg BT /F1 8 Tf 48 566 Td (Oportunidades iniciais e de est\341gio em desenvolvimento de software, com interesse em web, APIs) Tj ET
+0.0980 0.0824 0.1216 rg BT /F1 8 Tf 48 554 Td (e sistemas full-stack.) Tj ET
+0.4510 0.3255 0.6078 rg BT /F2 9 Tf 48 525 Td (TECNOLOGIAS E FERRAMENTAS) Tj ET
+0.4510 0.3255 0.6078 rg BT /F2 9 Tf 339 525 Td (FORMA\307\303O) Tj ET
+0.8627 0.8392 0.8980 RG 0.7 w 48 518 m 547 518 l S
+0.4510 0.3255 0.6078 rg BT /F2 7 Tf 48 499 Td (WEB) Tj ET
+0.0980 0.0824 0.1216 rg BT /F1 8 Tf 48 486 Td (HTML5, CSS3, JavaScript, React e Vite) Tj ET
+0.4510 0.3255 0.6078 rg BT /F2 7 Tf 48 470 Td (BACK-END) Tj ET
+0.0980 0.0824 0.1216 rg BT /F1 8 Tf 48 457 Td (C#, .NET, ASP.NET Core e APIs REST) Tj ET
+0.4510 0.3255 0.6078 rg BT /F2 7 Tf 48 441 Td (DADOS) Tj ET
+0.0980 0.0824 0.1216 rg BT /F1 8 Tf 48 428 Td (SQL, MySQL e Entity Framework Core) Tj ET
+0.4510 0.3255 0.6078 rg BT /F2 7 Tf 48 412 Td (EM ESTUDO) Tj ET
+0.0980 0.0824 0.1216 rg BT /F1 8 Tf 48 399 Td (Kotlin e React Native) Tj ET
+0.4510 0.3255 0.6078 rg BT /F2 7 Tf 48 383 Td (PR\301TICAS) Tj ET
+0.0980 0.0824 0.1216 rg BT /F1 8 Tf 48 370 Td (Git/GitHub, design responsivo e) Tj ET
+0.0980 0.0824 0.1216 rg BT /F1 8 Tf 48 358 Td (documenta\347\343o t\351cnica) Tj ET
+0.0980 0.0824 0.1216 rg BT /F2 8 Tf 339 498 Td (ETEC) Tj ET
+0.0980 0.0824 0.1216 rg BT /F1 8 Tf 339 485 Td (Curso de Desenvolvimento de Sistemas.) Tj ET
+0.4510 0.3255 0.6078 rg BT /F2 7 Tf 339 458 Td (INTERESSES T\311CNICOS) Tj ET
+0.0980 0.0824 0.1216 rg BT /F1 8 Tf 339 445 Td (Desenvolvimento full-stack, interfaces) Tj ET
+0.0980 0.0824 0.1216 rg BT /F1 8 Tf 339 433 Td (acess\355veis, APIs, modelagem de dados e) Tj ET
+0.0980 0.0824 0.1216 rg BT /F1 8 Tf 339 421 Td (arquitetura de aplica\347\365es.) Tj ET
+0.4510 0.3255 0.6078 rg BT /F2 9 Tf 48 331 Td (PROJETOS SELECIONADOS) Tj ET
+0.8627 0.8392 0.8980 RG 0.7 w 48 324 m 547 324 l S
+0.0980 0.0824 0.1216 rg BT /F2 8.3 Tf 48 306 Td (ChurchManager - projeto acad\352mico / TCC) Tj ET
+0.3843 0.3569 0.4196 rg BT /F1 7.3 Tf 48 294 Td (Sistema web responsivo em desenvolvimento; front-end React/Vite, API C# / ASP.NET Core) Tj ET
+0.3843 0.3569 0.4196 rg BT /F1 7.3 Tf 48 284 Td (e banco MySQL. Fluxos e valida\347\365es pendentes seguem documentados.) Tj ET
+0.3333 0.4902 0.6196 rg BT /F3 6.2 Tf 48 273 Td (REACT | JAVASCRIPT | C# | ASP.NET CORE | MYSQL) Tj ET
+0.0980 0.0824 0.1216 rg BT /F2 8.3 Tf 48 262 Td (EleiNex - plataforma c\355vica) Tj ET
+0.3843 0.3569 0.4196 rg BT /F1 7.3 Tf 48 250 Td (Projeto web para organizar informa\347\365es eleitorais p\372blicas, propostas presidenciais e) Tj ET
+0.3843 0.3569 0.4196 rg BT /F1 7.3 Tf 48 240 Td (refer\352ncias consult\341veis, com foco em transpar\352ncia e experi\352ncia responsiva.) Tj ET
+0.3333 0.4902 0.6196 rg BT /F3 6.2 Tf 48 229 Td (HTML | CSS | JAVASCRIPT) Tj ET
+0.0980 0.0824 0.1216 rg BT /F2 8.3 Tf 48 218 Td (SPI - API de usu\341rios) Tj ET
+0.3843 0.3569 0.4196 rg BT /F1 7.3 Tf 48 206 Td (Projeto de estudos para praticar a estrutura de uma API e organizar uma solution .NET.) Tj ET
+0.3333 0.4902 0.6196 rg BT /F3 6.2 Tf 48 195 Td (.NET | API | BACK-END) Tj ET
+0.0980 0.0824 0.1216 rg BT /F2 8.3 Tf 48 174 Td (Lanchonete) Tj ET
+0.3843 0.3569 0.4196 rg BT /F1 7.3 Tf 48 162 Td (Aplica\347\343o desktop de estudo em Windows Forms para praticar telas e fluxos.) Tj ET
+0.3333 0.4902 0.6196 rg BT /F3 6.2 Tf 48 151 Td (C# | WINDOWS FORMS) Tj ET
+0.0980 0.0824 0.1216 rg BT /F2 8.3 Tf 48 130 Td (Estruturas condicionais) Tj ET
+0.3843 0.3569 0.4196 rg BT /F1 7.3 Tf 48 118 Td (Exerc\355cios introdut\363rios de condicionais, racioc\355nio l\363gico e decomposi\347\343o de problemas.) Tj ET
+0.3333 0.4902 0.6196 rg BT /F3 6.2 Tf 48 107 Td (L\323GICA DE PROGRAMA\307\303O | FUNDAMENTOS) Tj ET
+0.8627 0.8392 0.8980 RG 0.7 w 48 25 m 547 25 l S
+0.3843 0.3569 0.4196 rg BT /F3 6.5 Tf 48 12 Td (OTINIEL / CURR\315CULO 2026) Tj ET
+0.3843 0.3569 0.4196 rg BT /F3 6.5 Tf 440 12 Td (CONTATO ABERTO | BRASIL) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Title (Curr\355culo - Jonathan Otiniel) /Author (Jonathan Otiniel) /Subject (Curr\355culo profissional - Desenvolvimento de Sistemas) >>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000016 00000 n 
+0000000065 00000 n 
+0000000122 00000 n 
+0000000268 00000 n 
+0000000365 00000 n 
+0000000467 00000 n 
+0000000562 00000 n 
+0000006207 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R /Info 8 0 R >>
+startxref
+6363
+%%EOF
