@@ -71,3 +71,19 @@ As ideias anteriores de painel administrativo com colaboradores, OAuth, MFA, ban
 3. Fazer uma mudança por vez, buscar o SHA atual do arquivo no GitHub antes de atualizar.
 4. Após cada mudança, inspecionar o workflow; não afirmar publicação até verificar sucesso.
 5. Manter links públicos e e-mail corretos, sem publicar credenciais ou dados sensíveis.
+
+
+## Registro de implementação — 21/10/2026
+
+### V2.4 — estabilidade da navegação e prévia mobile
+- Consolidada a regra final da barra flutuante: posição fixa centralizada com `left: 50%` e `translateX(-50%)`, respeitando áreas seguras e larguras móveis.
+- Em ecrãs pequenos, os cinco destinos distribuem a largura de forma equilibrada; a regra anterior que podia forçar largura zero nos itens foi anulada.
+- O indicador liquid-glass recalcula a posição quando ocorre redimensionamento, mudança de orientação, retorno à página, carregamento e alterações geométricas observadas pelo `ResizeObserver`.
+- Criada a rota `preview-mobile.html`, que abre a aplicação real numa moldura adaptável e oferece o link “Abrir direto”.
+- README atualizado com as instruções da prévia.
+
+### Evidências e limites de verificação
+- Verificados nos arquivos publicados: sintaxe JavaScript, balanceamento de chaves CSS, presença das regras V2.4, uso do `ResizeObserver`, existência da rota de prévia, documentação no README e links para os quatro estudos de caso.
+- A prévia autônoma de QA foi testada em larguras de 320, 360, 390, 430, 768 e 1024 px; os testes observaram alinhamento central da navegação, ausência de overflow horizontal, alternância de tema e seleção da seção Projetos.
+- **Importante:** o teste da prévia autônoma não substitui a validação da aplicação servida pelo GitHub Pages. A verificação HTTP da URL de produção não pôde ser concluída neste ambiente por falha de resolução DNS; não considerar o novo deploy confirmado até abrir a rota publicada num navegador.
+
