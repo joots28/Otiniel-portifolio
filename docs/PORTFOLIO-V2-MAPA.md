@@ -7,9 +7,10 @@ Portfólio profissional público de Jonathan Otiniel, acessível por desktop, ta
 ## Princípios de experiência
 
 - Direção editorial cinematográfica com uma linguagem cyber-gótica contida.
-- Tema escuro e claro, com controle explícito e preferência local.
+- Tema exclusivamente escuro; não existe alternância para modo claro.
 - Navegação superior sólida, centralizada e estável, sem indicadores que empurrem ou distorçam itens.
-- Composição tridimensional implementada em CSS; efeitos são decorativos e não bloqueiam texto, foco, toque ou rolagem.
+- Composição de átomo com três órbitas, inspirada no React, usando SVG/CSS; os efeitos não bloqueiam texto, foco, toque ou rolagem.
+- Catálogo de projetos em coluna única, com cada cartão ocupando a largura da página e descrições ampliadas.
 - A experiência funciona sem movimentos contínuos quando `prefers-reduced-motion` está ativo.
 - Estrutura leve, com HTML semântico e arquivos de estilo e comportamento separados.
 - Conteúdo público sem autenticação; a área administrativa só poderá ser anunciada quando existir autorização real no servidor.
@@ -21,14 +22,15 @@ Portfólio profissional público de Jonathan Otiniel, acessível por desktop, ta
 3. **Projetos:** catálogo filtrável.
 4. **Stack:** tecnologias estudadas e usadas, sem percentuais fictícios.
 5. **Jornada:** evolução técnica e próximos focos.
-6. **Contato:** canais públicos e formulário `mailto:`.
+6. **Contato:** canais públicos e formulário via FormSubmit AJAX, com honeypot anti-spam e link `mailto:` de contingência.
+7. **Currículo:** página HTML para leitura no site, com download do PDF e opção de impressão/salvamento em PDF.
 7. **Estudos de caso:** EleiNexus, ChurchManager, SeguroGestor, Portfolio V1, SPI API, Lanchonete e Estruturas condicionais.
 
 ## Estrutura técnica
 
 - `index.html`: página inicial e catálogo.
-- `assets/css/cinematic.css`: tokens, temas, responsividade, componentes e animações.
-- `assets/js/cinematic.js`: navegação, tema, filtros, progresso, revelação e formulário.
+- `assets/css/cinematic.css`: tokens do tema escuro, responsividade, cartões de projeto, filtros e animações.
+- `assets/js/cinematic.js`: navegação, filtros exclusivos, progresso, revelação e formulário de contato.
 - `assets/brand/atom.svg`: marca original usada na V1.
 - `assets/brand/otn-share.svg`: cartão social.
 - `projetos/`: páginas estáticas independentes por projeto.
@@ -46,8 +48,11 @@ Uma área de proprietário deve usar provedor de identidade, recuperação segur
 
 - [ ] Páginas, links internos e links de retorno funcionam.
 - [ ] Os sete estudos de caso carregam a identidade e os estilos comuns.
+- [ ] O catálogo mostra um projeto por linha em desktop e mobile, com descrições legíveis.
 - [ ] Navegação permanece alinhada e usável em mobile.
-- [ ] Filtros e alternância de tema funcionam.
+- [ ] Filtros selecionam somente uma categoria e o estado visual acompanha `aria-pressed`.
+- [ ] Não existe alternância para modo claro.
+- [ ] Currículo pode ser lido no site, baixado em PDF e impresso/salvo como PDF.
 - [ ] Layout testado em 320, 360, 390, 430, 768, 1024 e 1440 px.
 - [ ] Sem overflow horizontal, exceções JavaScript ou recursos locais ausentes.
 - [ ] Movimento reduzido respeitado.
