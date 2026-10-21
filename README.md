@@ -23,14 +23,14 @@ O projeto busca explicar não apenas o resultado visual, mas o problema, o conte
 
 - Conteúdo público sem cadastro ou login obrigatório.
 - Navegação superior sólida, fixa e estável, sem efeito de vidro sobre o texto.
-- Temas escuro e claro com preferência lembrada no navegador.
-- Abertura cinematográfica com composição 3D em CSS, órbitas e cartões visuais.
+- Tema escuro exclusivo; sem alternância para modo claro.
+- Abertura cinematográfica com átomo de três órbitas inspirado no React, animado em SVG/CSS.
 - Efeitos de movimento reduzidos em dispositivos sensíveis ou com `prefers-reduced-motion`.
-- Catálogo de projetos com filtros por categoria e estudos de caso independentes.
+- Catálogo em coluna única: cada projeto recebe uma linha completa, texto ampliado e hierarquia de leitura clara; filtros exclusivos por categoria.
 - Logo vetorial original herdada do Portfolio V1.
 - Layout adaptado para telas pequenas, áreas de toque e navegação por teclado.
-- Formulário que prepara um e-mail via `mailto:`; a página não envia nem armazena mensagens.
-- Currículo PDF disponível no caminho `assets/cv/Jonathan-Otiniel-Curriculo.pdf`.
+- Formulário de contato via FormSubmit AJAX, com honeypot anti-spam e alternativa `mailto:` em caso de falha; o proprietário precisa confirmar a ativação inicial do serviço.
+- Currículo visualizável em `curriculo-jonathan.html`, com opção de baixar o PDF ou imprimir/salvar em PDF.
 - Metadados de compartilhamento e README documentado.
 
 ## Projetos e estudos de caso
@@ -64,13 +64,16 @@ Não é necessário instalar dependências para visualizar o site. Os efeitos 3D
 ```text
 .
 ├── index.html
+├── curriculo-jonathan.html
 ├── preview-mobile.html
 ├── assets/
 │   ├── brand/
 │   │   ├── atom.svg
 │   │   └── otn-share.svg
 │   ├── css/cinematic.css
+│   ├── css/curriculo.css
 │   ├── js/cinematic.js
+│   ├── js/curriculo.js
 │   └── cv/Jonathan-Otiniel-Curriculo.pdf
 ├── projetos/
 │   ├── eleinex.html
@@ -104,9 +107,12 @@ Não é necessário instalar dependências para visualizar o site. Os efeitos 3D
 
 ## Publicação
 
-O repositório utiliza a branch `v2-foundation` como branch de trabalho/publicação documentada. Após integrar alterações, confira o status do workflow de Pages e abra a URL publicada em um navegador real antes de declarar o deploy concluído.
+O site principal está hospedado no Render e conectado à branch `v2-foundation`, com publicação automática após atualizações do repositório.
 
-Prévia mobile hospedada, quando a publicação do Pages estiver atualizada: [abrir preview-mobile.html](https://joots28.github.io/Otiniel-portifolio/preview-mobile.html).
+- Site: [otiniel-portfolio-v2.onrender.com](https://otiniel-portfolio-v2.onrender.com/)
+- Prévia mobile: [abrir preview-mobile.html](https://otiniel-portfolio-v2.onrender.com/preview-mobile.html)
+- Currículo no site: [visualizar currículo](https://otiniel-portfolio-v2.onrender.com/curriculo-jonathan.html)
+- PDF: [baixar currículo](https://otiniel-portfolio-v2.onrender.com/assets/cv/Jonathan-Otiniel-Curriculo.pdf)
 
 ## Administração e segurança
 
