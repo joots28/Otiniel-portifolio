@@ -86,9 +86,9 @@
   updateProgress();
 
   // Filtros exclusivos: apenas um botão fica selecionado, e aria-pressed é a fonte visual de verdade.
-  const filterButtons = $(".filter-chip[data-filter]");
+  const filterButtons = $$(".filter-chip[data-filter]");
   const filterGroup = $(".project-filters");
-  const projectItems = $("#projectsGrid [data-category], .compact-project-grid [data-category]");
+  const projectItems = $$("#projectsGrid [data-category], .compact-project-grid [data-category]");
   const applyProjectFilter = selectedButton => {
     const filter = selectedButton.dataset.filter || "all";
     filterButtons.forEach(button => {
