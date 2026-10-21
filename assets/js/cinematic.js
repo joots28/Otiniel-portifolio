@@ -6,31 +6,10 @@
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-  // Tema acessível: preferência local, com fallback caso o armazenamento seja bloqueado.
-  const themeToggle = $("#themeToggle");
-  const setTheme = (theme) => {
-    const next = theme === "light" ? "light" : "dark";
-    root.dataset.theme = next;
-    if (themeToggle) {
-      const label = next === "dark" ? "Ativar tema claro" : "Ativar tema escuro";
-      themeToggle.setAttribute("aria-label", label);
-      themeToggle.title = label;
-      const icon = $(".theme-icon", themeToggle);
-      const text = $(".theme-label", themeToggle);
-      if (icon) icon.textContent = next === "dark" ? "☼" : "☾";
-      if (text) text.textContent = next === "dark" ? "Tema claro" : "Tema escuro";
-    }
-    const meta = $('meta[name="theme-color"]');
-    if (meta) meta.content = next === "dark" ? "#090a0f" : "#f1eee8";
-  };
-  let preferredTheme = "dark";
-  try { preferredTheme = localStorage.getItem("otn-theme") || "dark"; } catch (_) {}
-  setTheme(preferredTheme);
-  themeToggle?.addEventListener("click", () => {
-    const next = root.dataset.theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    try { localStorage.setItem("otn-theme", next); } catch (_) {}
-  });
+  // Identidade exclusivamente escura, conforme a direção visual da V2.
+  root.dataset.theme = "dark";
+  const themeColor = $('meta[name="theme-color"]');
+  if (themeColor) themeColor.content = "#090a0f";
 
   // Menu móvel: fecha por seleção, clique externo, Escape e retorno ao desktop.
   const menuToggle = $("#menuToggle");
@@ -98,25 +77,34 @@
   }, { passive: true });
   updateProgress();
 
-  // Filtros operam por data-category e informam seu estado pelo aria-pressed.
-  const filterButtons = $$(".filter-chip[data-filter]");
-  const projectItems = $$("#projectsGrid [data-category], .compact-project-grid [data-category]");
-  filterButtons.forEach(button => button.addEventListener("click", () => {
-    const filter = button.dataset.filter || "all";
-    filterButtons.forEach(item => {
-      const selected = item === button;
-      item.classList.toggle("is-selected", selected);
-      item.setAttribute("aria-pressed", String(selected));
+  // Filtros exclusivos: apenas um botão fica selecionado, e aria-pressed é a fonte visual de verdade.
+  const filterButtons = $(".filter-chip[data-filter]");
+  const filterGroup = $(".project-filters");
+  const projectItems = $("#projectsGrid [data-category], .compact-project-grid [data-category]");
+  const applyProjectFilter = selectedButton => {
+    const filter = selectedButton.dataset.filter || "all";
+    filterButtons.forEach(button => {
+      const active = button === selectedButton;
+      button.classList.toggle("is-selected", active);
+      button.setAttribute("aria-pressed", String(active));
     });
     projectItems.forEach(card => {
       const category = card.dataset.category || "";
       const visible = filter === "all" ||
-        (filter === "web" && category === "web") ||
+        (filter === "frontend" && category === "frontend") ||
         (filter === "backend" && category === "backend") ||
         (filter === "academic" && category === "academic");
       card.hidden = !visible;
     });
-  }));
+  };
+  filterGroup?.addEventListener("click", event => {
+    const button = event.target.closest(".filter-chip[data-filter]");
+    if (!button || !filterGroup.contains(button)) return;
+    applyProjectFilter(button);
+  });
+  // Mantém o catálogo consistente também ao entrar por deep link ou restaurar a página.
+  const activeFilter = filterButtons.find(button => button.getAttribute("aria-pressed") === "true") || filterButtons[0];
+  if (activeFilter) applyProjectFilter(activeFilter);
 
   // Inclinação 3D apenas para mouse/trackpad; touch e movimento reduzido mantêm interface estável.
   if (!reduced && finePointer) {
