@@ -1,73 +1,43 @@
 # OTINIEL Portfolio V2
 
-Portfólio pessoal de **Jonathan Otiniel**, desenvolvido como uma experiência web responsiva com direção visual cyber-gótica editorial, tipografia técnica e navegação inferior flutuante.
+Portfólio público de **Jonathan Otiniel**, em HTML, CSS e JavaScript, com direção visual cyber-gótica editorial, navegação inferior flutuante e layout responsivo.
 
-> **Status:** primeira fundação visual em desenvolvimento. As descrições de projetos são conceituais e seus estados devem ser atualizados conforme existirem entregas verificáveis.
-
-## Objetivos
-
-- Apresentar o desenvolvedor e sua trajetória técnica.
-- Destacar um projeto principal e organizar os demais em uma grade editorial.
-- Conectar competências a projetos e evidências reais.
-- Manter a experiência pública aberta, sem login para visitantes.
-- Priorizar acessibilidade, responsividade e carregamento leve.
-- Evoluir futuramente com páginas de estudos de caso e diário técnico.
-
-## Funcionalidades atuais
-
-- Tema escuro padrão e alternância para tema claro.
-- Navegação inferior flutuante com identificadores numerados.
-- Layout responsivo para desktop e celular.
-- Seções Início, Projetos, Sobre, Stack e Contato.
-- Detalhes expansíveis para o projeto principal.
-- Formulário de contato que prepara uma mensagem no aplicativo de e-mail. **Não existe backend de envio nesta versão.**
-- Respeito à preferência do sistema por movimento reduzido.
-- HTML, CSS e JavaScript separados, sem TypeScript, framework obrigatório ou dependências de build.
+## Princípios
+- O site público é aberto: **não exige login** para ver projetos ou documentação.
+- Custo operacional previsto: **R$ 0**, com hospedagem estática e sem banco/backend no MVP.
+- Tema escuro por padrão, alternância para tema claro.
+- HTML, CSS e JavaScript separados; sem TypeScript ou framework obrigatório.
+- Efeitos e animações devem respeitar `prefers-reduced-motion`, manter os controles acessíveis e não esconder informação essencial.
+- E-mail público: **otinieljonathan2804@gmail.com**.
+- O formulário atual prepara uma mensagem via `mailto:`. Não envia diretamente por servidor.
 
 ## Estrutura
-
 ```text
 .
 ├── index.html
-├── README.md
-└── assets/
-    ├── css/
-    │   └── style.css
-    └── js/
-        └── main.js
+├── assets/
+│   ├── css/style.css
+│   └── js/main.js
+├── projetos/
+└── docs/PORTFOLIO-V2-MAPA.md
 ```
 
-## Executar localmente
-
-Basta abrir `index.html` em um navegador. Para uma experiência local mais fiel, também é possível iniciar um servidor estático na pasta do projeto:
-
+## Rodar localmente
+Abra `index.html` ou execute na raiz:
 ```bash
 python -m http.server 8000
 ```
+Depois visite `http://localhost:8000`.
 
-Depois, acesse `http://localhost:8000`.
+## Publicação
+O site é estático e pode ser hospedado gratuitamente em GitHub Pages para um repositório público. Antes de declarar o site publicado, confira a branch e a fonte configuradas em **Settings → Pages** e valide um workflow concluído com sucesso.
 
-## Publicação gratuita
-
-A base é composta por arquivos estáticos e pode ser hospedada em um serviço de páginas estáticas. A opção inicial a validar é o **GitHub Pages**, sem custo para um repositório público. Outra alternativa é o Cloudflare Pages. Antes de ativar a publicação, conferir a visibilidade do repositório, a configuração do provedor e os limites atuais.
-
-## Segurança e privacidade
-
-- A versão atual não contém painel administrativo nem autenticação.
-- Não inserir tokens, senhas ou segredos nos arquivos públicos.
-- O formulário abre o cliente de e-mail; não envia dados diretamente para um servidor.
-- Os visitantes não precisam fazer login para consultar o portfólio.
-- A futura área administrativa, caso implementada, deverá ser separada da área pública e protegida no servidor.
-
-## Próximas etapas
-
-1. Revisar a primeira versão visual em desktop e celular.
-2. Substituir os cartões conceituais por informações e links reais dos projetos.
-3. Definir hospedagem estática gratuita e publicar o primeiro release.
-4. Criar páginas dedicadas de estudos de caso.
-5. Planejar diário técnico automatizado somente após validar requisitos, limites gratuitos e segurança.
-6. Projetar painel administrativo separado, sem adicionar login à navegação pública.
+## Escopo do primeiro release
+- Página inicial responsiva, tema claro/escuro e navegação com indicador líquido.
+- Estudos de caso estáticos e projetos com status honesto.
+- Seções Sobre, Stack e Contato.
+- Sem painel administrativo, contas de colaboradores, banco de dados, webhooks ou autenticação de visitantes.
+- Não apresentar funcionalidades, métricas, capturas ou resultados como reais sem evidência.
 
 ## Créditos
-
-Projeto pessoal de Jonathan Otiniel. A identidade visual, os textos e a implementação evoluirão junto com o portfólio.
+Projeto pessoal de Jonathan Otiniel. Para decisões e requisitos do conceito, consulte [o mapa da V2](docs/PORTFOLIO-V2-MAPA.md).
