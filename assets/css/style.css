@@ -250,3 +250,93 @@ body::after {
     transform: none !important;
   }
 }
+
+
+/* V2.4 — geometria consolidada da navegação e segurança mobile */
+html { scroll-padding-bottom: 132px; }
+section[id] { scroll-margin-bottom: 120px; }
+.bottom-nav {
+  position: fixed !important;
+  z-index: 9999 !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: max(12px, env(safe-area-inset-bottom)) !important;
+  margin: 0 !important;
+  transform: translateX(-50%) !important;
+  width: max-content;
+  max-width: calc(100vw - 24px);
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: center;
+  overflow: visible;
+  overflow-x: visible;
+  overflow-y: visible;
+  animation: nav-opacity-in .45s ease-out both;
+  will-change: auto;
+}
+.bottom-nav::after {
+  pointer-events: none;
+  max-width: none;
+}
+.bottom-nav .nav-item {
+  flex: 0 1 auto;
+  width: auto !important;
+  min-width: 0;
+}
+@media (max-width: 600px) {
+  .bottom-nav {
+    left: 50% !important;
+    right: auto !important;
+    bottom: max(10px, env(safe-area-inset-bottom)) !important;
+    transform: translateX(-50%) !important;
+    width: calc(100vw - 24px) !important;
+    max-width: 460px;
+    padding: 6px;
+    gap: 2px;
+    justify-content: stretch;
+    overflow: visible;
+  }
+  .bottom-nav .nav-item {
+    flex: 1 1 0% !important;
+    width: auto !important;
+    min-width: 0;
+    min-height: 52px;
+    padding: 8px 2px;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3px;
+    white-space: nowrap;
+  }
+  .bottom-nav .nav-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-size: clamp(8px, 2.35vw, 10px);
+    line-height: 1.1;
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+  .bottom-nav .nav-text small { font-size: 7px; line-height: 1; }
+  .bottom-nav .nav-icon { font-size: 17px; line-height: 1; }
+  body { padding-bottom: 96px; }
+}
+@media (max-width: 340px) {
+  .bottom-nav {
+    width: calc(100vw - 14px) !important;
+    padding: 4px;
+    gap: 0;
+  }
+  .bottom-nav .nav-item { padding-inline: 0; }
+  .bottom-nav .nav-text { font-size: 7.5px; }
+  .bottom-nav .nav-text small { font-size: 6.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bottom-nav { animation: none !important; }
+  .bottom-nav::after { transition: none !important; }
+}
