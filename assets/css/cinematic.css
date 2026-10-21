@@ -297,3 +297,26 @@ body{font-size:17px;line-height:1.78}
  .atom-orbit-group,.atom-nucleus-halo{animation:none!important}
  .atom-visual{transition:none}
 }
+
+
+/* Keep the navigation's active state exclusive: hover must not look like a second selection. */
+.site-nav a:hover:not(.is-active){color:var(--accent)}
+.site-nav a:hover:not(.is-active):after{right:100%}
+.site-nav a.is-active{color:var(--text)}
+.site-nav a.is-active:after{right:0}
+
+/* Moving technology rail restored from Portfolio V1. */
+.ticker{position:relative;overflow:hidden;border-block:1px solid var(--line);background:var(--surface)}
+.ticker-track{display:flex;align-items:center;justify-content:space-around;gap:clamp(24px,4vw,44px);width:max-content;min-width:200%;padding:19px 0;white-space:nowrap;animation:ticker-scroll 34s linear infinite;will-change:transform}
+.ticker-track span{flex:0 0 auto;color:var(--muted);font:600 13px/1.4 var(--mono);letter-spacing:.16em}
+.ticker-track b{flex:0 0 auto;color:var(--accent-2);font-size:16px;font-weight:400}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@keyframes ticker-scroll{to{transform:translateX(-50%)}}
+@media(max-width:560px){
+  .ticker-track{gap:24px;padding:16px 0;animation-duration:28s}
+  .ticker-track span{font-size:11px;letter-spacing:.13em}
+  .ticker-track b{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ticker-track{animation:none!important;transform:none!important;min-width:100%;width:auto;overflow-x:auto}
+}
