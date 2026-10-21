@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Monograma ONT</title>
+  <defs><linearGradient id="bone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1eee8"/><stop offset="1" stop-color="#c9c4d1"/></linearGradient></defs>
+  <path d="M11 11H53M32 12V55" fill="none" stroke="#756dff" stroke-width="4.2" stroke-linecap="square" opacity=".78"/>
+  <path d="M13 12H51M34 15V54" fill="none" stroke="#64b5ff" stroke-width="1.15" opacity=".62"/>
+  <path d="M8 22L18.5 15.5L29 22V43L18.5 49.5L8 43Z" fill="#10110f" stroke="url(#bone)" stroke-width="3.5" stroke-linejoin="miter"/>
+  <path d="M25 50V16H31L44 36V16H52V50H46L33 30V50Z" fill="url(#bone)"/>
+  <path d="M26.5 48V19H29.7L44.8 42V18.5H49.6" fill="none" stroke="#64b5ff" stroke-width="1.2" opacity=".76"/>
+  <path d="M7 30H11M47 23H55M41 53H49" fill="none" stroke="#8a7dff" stroke-width="1.6" stroke-linecap="square"/>
+</svg>

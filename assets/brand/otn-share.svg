@@ -1,18 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#B9A0DF"/><stop offset="1" stop-color="#8DB7D8"/></linearGradient><radialGradient id="a"><stop stop-color="#8D75B7" stop-opacity=".3"/><stop offset="1" stop-color="#09090B" stop-opacity="0"/></radialGradient></defs>
-<rect width="1200" height="630" fill="#09090B"/><rect width="1200" height="630" fill="url(#a)"/>
-<g opacity=".11" stroke="#4D4458" stroke-width="1"><path d="M0 70H1200M0 140H1200M0 210H1200M0 280H1200M0 350H1200M0 420H1200M0 490H1200M0 560H1200"/><path d="M70 0V630M140 0V630M210 0V630M280 0V630M350 0V630M420 0V630M490 0V630M560 0V630M630 0V630M700 0V630M770 0V630M840 0V630M910 0V630M980 0V630M1050 0V630M1120 0V630"/></g>
-<g transform="translate(91 171) scale(2.1)">
-  <defs><linearGradient id="metal" x1="8%" y1="5%" x2="92%" y2="95%"><stop stop-color="#D9C9EF"/><stop offset=".52" stop-color="#B9A0DF"/><stop offset="1" stop-color="#8DB7D8"/></linearGradient><filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.2"/></filter></defs>
-  <path d="M34 11H92L117 36V92L92 117H36L11 92V36Z" fill="#111017" stroke="#B9A0DF" stroke-opacity=".28" stroke-width="8" filter="url(#glow)"/>
-  <path d="M34 11H92L117 36V92L92 117H36L11 92V36Z" fill="#111017" stroke="url(#metal)" stroke-width="1.8" stroke-linejoin="miter"/>
-  <path d="M32 89V39L96 91V39" fill="none" stroke="url(#metal)" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
-  <path d="M64 15L72 29L64 39L56 29Z" fill="#F3EFE7"/><path d="M64 39V108" stroke="#B9A0DF" stroke-width="1.4"/>
-  <path d="M20 30L28 34L20 38M108 90L100 94L108 98" fill="none" stroke="#8DB7D8" stroke-width="1.4" stroke-linecap="square"/>
-  <path d="M43 102L64 108L85 102" fill="none" stroke="#B9A0DF" stroke-opacity=".6" stroke-width="1"/>
-</g><path d="M330 163V468" stroke="#3C3545" stroke-width="2"/>
-<text x="386" y="250" fill="#B9A0DF" font-family="monospace" font-size="19" letter-spacing="6">FULLSTACK / DEVELOPER</text>
-<text x="380" y="340" fill="#F3EFE7" font-family="Arial,sans-serif" font-weight="700" font-size="82" letter-spacing="3">OTINIEL</text>
-<text x="386" y="393" fill="#B6ADBF" font-family="Arial,sans-serif" font-size="24">Lógica. Arquitetura. Experiência.</text>
-<path d="M386 444H760" stroke="url(#g)" stroke-width="3"/><text x="386" y="486" fill="#8DB7D8" font-family="monospace" font-size="15" letter-spacing="3">CYBER-GOTHIC / PORTFOLIO V2</text>
-<text x="1080" y="576" text-anchor="end" fill="#B6ADBF" font-family="monospace" font-size="14">JONATHAN OTINIEL · 2026</text></svg>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#090a0f"/><stop offset="1" stop-color="#18152a"/></linearGradient><radialGradient id="glow"><stop offset="0" stop-color="#756dff" stop-opacity=".36"/><stop offset="1" stop-color="#756dff" stop-opacity="0"/></radialGradient></defs>
+<rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#glow)"/>
+<g stroke="#5b5875" stroke-opacity=".24" fill="none"><path d="M0 105H1200M0 210H1200M0 315H1200M0 420H1200M0 525H1200M100 0V630M200 0V630M300 0V630M400 0V630M500 0V630M600 0V630M700 0V630M800 0V630M900 0V630M1000 0V630M1100 0V630"/></g>
+<rect x="79" y="124" width="142" height="142" rx="24" fill="#10110f" stroke="#756dff" stroke-width="2"/>
+<g transform="translate(118 165) scale(1.0)"><path d="M-26 -28H26M0 -27V34" fill="none" stroke="#756dff" stroke-width="4" opacity=".78"/><path d="M-25 -27H25M2 -24V33" fill="none" stroke="#64b5ff" stroke-width="1.1" opacity=".62"/><path d="M-30 -17L-19 -24L-8 -17V4L-19 11L-30 4Z" fill="#10110f" stroke="#f1eee8" stroke-width="3.3"/><path d="M-13 12V-23H-7L7 -3V-23H15V12H9L-5 -8V12Z" fill="#f1eee8"/><path d="M-12 10V-20H-8L7 3V-21H13" fill="none" stroke="#64b5ff" stroke-width="1.2" opacity=".75"/></g>
+<text x="270" y="176" fill="#f1eee8" font-family="Arial,sans-serif" font-size="25" font-weight="700" letter-spacing="8">OTINIEL</text><text x="270" y="221" fill="#756dff" font-family="Arial,sans-serif" font-size="17" letter-spacing="5">SOFTWARE / PORTFOLIO</text>
+<text x="80" y="365" fill="#f1eee8" font-family="Arial,sans-serif" font-size="66" font-weight="700" letter-spacing="-2">Código com intenção.</text><text x="83" y="418" fill="#b8b6c5" font-family="Arial,sans-serif" font-size="25">Projetos, decisões técnicas e evolução em desenvolvimento de software.</text>
+<path d="M82 487H1115" stroke="#756dff" stroke-width="2"/><text x="82" y="535" fill="#8b899c" font-family="monospace" font-size="16" letter-spacing="3">WEB · API · DADOS · EXPERIÊNCIA</text><text x="1113" y="573" text-anchor="end" fill="#8b899c" font-family="monospace" font-size="14">JONATHAN OTINIEL / 2026</text></svg>
