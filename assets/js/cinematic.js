@@ -157,21 +157,74 @@
     revealItems.forEach(item => revealObserver.observe(item));
   }
 
-  // O formulário prepara um mailto, sem backend e sem armazenamento da mensagem.
+  // Contact form: server-side mail forwarding through FormSubmit; mailto fallback on failure.
+  // The provider requires the owner to confirm the activation email before first-time submissions are delivered.
   const form = $("#contactForm");
   const formNote = $("#formNote");
-  form?.addEventListener("submit", event => {
+  const formButton = form?.querySelector('button[type="submit"]');
+
+  const writeFormNote = (message, fallbackHref = "") => {
+    if (!formNote) return;
+    formNote.replaceChildren(document.createTextNode(message + " "));
+    if (fallbackHref) {
+      const link = document.createElement("a");
+      link.href = fallbackHref;
+      link.textContent = "Enviar diretamente pelo app de e-mail ↗";
+      formNote.append(document.createElement("br"), link);
+    }
+  };
+
+  form?.addEventListener("submit", async event => {
     event.preventDefault();
     if (!form.reportValidity()) return;
+
     const data = new FormData(form);
     const name = String(data.get("name") || "").trim();
     const email = String(data.get("email") || "").trim();
     const message = String(data.get("message") || "").trim();
-    if (!name || !email || !message) return;
+    const honey = String(data.get("_honey") || "");
+    if (!name || !email || !message || honey) return;
+
     const subject = encodeURIComponent("Contato pelo portfólio — " + name);
     const body = encodeURIComponent("Nome: " + name + "\nE-mail: " + email + "\n\nMensagem:\n" + message);
-    if (formNote) formNote.textContent = "Seu aplicativo de e-mail será aberto para revisar e enviar a mensagem.";
-    window.location.href = "mailto:otinieljonathan2804@gmail.com?subject=" + subject + "&body=" + body;
+    const mailto = "mailto:otinieljonathan2804@gmail.com?subject=" + subject + "&body=" + body;
+    const originalButton = formButton?.innerHTML;
+    if (formButton) {
+      formButton.disabled = true;
+      formButton.textContent = "Enviando…";
+    }
+    writeFormNote("Enviando sua mensagem…");
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/otinieljonathan2804@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(Object.fromEntries(data.entries()))
+      });
+      const result = await response.json().catch(() => ({}));
+      const accepted = response.ok && (
+        result.success === true ||
+        result.success === "true" ||
+        result.success === 1 ||
+        result.success === "1"
+      );
+      if (!accepted) {
+        throw new Error(typeof result.message === "string" ? result.message : "O serviço não confirmou o envio.");
+      }
+
+      form.reset();
+      writeFormNote("Mensagem encaminhada ao serviço de contato. Obrigado! Na primeira utilização, o proprietário precisa confirmar o e-mail de ativação do FormSubmit para liberar a entrega.");
+    } catch (error) {
+      writeFormNote("Não foi possível confirmar o envio pelo formulário. Tente novamente ou use o e-mail direto abaixo.", mailto);
+    } finally {
+      if (formButton) {
+        formButton.disabled = false;
+        formButton.innerHTML = originalButton || 'Enviar mensagem <span aria-hidden="true">↗</span>';
+      }
+    }
   });
 
   const year = $("#year");
