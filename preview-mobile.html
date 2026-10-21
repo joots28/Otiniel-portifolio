@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0a10">
+  <meta name="description" content="Prévia mobile do OTINIEL Portfolio V2.">
+  <title>Prévia mobile — OTINIEL Portfolio V2</title>
+  <style>
+    :root{color-scheme:dark;--bg:#09090c;--surface:#14121b;--line:#302b39;--text:#f1edf7;--muted:#aaa2b5;--accent:#a78bfa}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .preview-bar{min-height:48px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);background:rgba(13,12,17,.96);font-size:11px;letter-spacing:.08em}
+    .preview-brand{display:flex;align-items:center;gap:9px;min-width:0}
+    .preview-mark{height:26px;width:26px;border:1px solid var(--accent);border-radius:7px;display:grid;place-items:center;color:var(--accent);font-weight:800}
+    .preview-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .preview-tag{font-size:9px;color:var(--muted);letter-spacing:.06em}
+    .preview-open{flex:0 0 auto;padding:8px 10px;border:1px solid var(--line);border-radius:999px;color:var(--text);text-decoration:none;font-size:10px}
+    .preview-open:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+    .preview-frame{width:min(100%,430px);height:calc(100svh - 48px);min-height:500px;margin:0 auto;border-left:1px solid var(--line);border-right:1px solid var(--line);background:var(--bg);box-shadow:0 0 60px rgba(0,0,0,.3)}
+    iframe{display:block;width:100%;height:100%;border:0;background:var(--bg)}
+    .preview-fallback{display:none;padding:24px;line-height:1.7;color:var(--muted);font-size:14px}
+    .preview-fallback a{color:var(--accent)}
+    @media(max-width:600px){.preview-bar{min-height:44px;padding:8px 10px}.preview-frame{width:100%;height:calc(100svh - 44px);min-height:0;border:0}.preview-tag{display:none}.preview-open{padding:7px 8px;font-size:9px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="preview-bar">
+    <div class="preview-brand"><span class="preview-mark" aria-hidden="true">ON</span><span class="preview-title">OTINIEL / V2</span><span class="preview-tag">PRÉVIA RESPONSIVA</span></div>
+    <a class="preview-open" href="./index.html" target="_top" rel="noopener">ABRIR DIRETO ↗</a>
+  </header>
+  <main class="preview-frame">
+    <iframe src="./index.html" title="Prévia responsiva real do OTINIEL Portfolio V2" loading="eager"></iframe>
+    <noscript><p class="preview-fallback">Abra a página principal para visualizar a prévia: <a href="./index.html">OTINIEL Portfolio V2</a>.</p></noscript>
+  </main>
+</body>
+</html>
