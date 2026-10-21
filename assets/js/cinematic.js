@@ -46,12 +46,20 @@
     ["#inicio", "#sobre", "#projetos", "#stack", "#jornada", "#contato"].includes(link.getAttribute("href"))
   );
   const navSections = navLinks.map(link => $(link.getAttribute("href"))).filter(Boolean);
-  const setActive = section => navLinks.forEach(link => {
-    const active = link.hash === "#" + section.id;
-    link.classList.toggle("is-active", active);
-    if (active) link.setAttribute("aria-current", "location");
-    else link.removeAttribute("aria-current");
-  });
+  const setActive = section => {
+    if (!section) return;
+    navLinks.forEach(link => {
+      const active = link.hash === "#" + section.id;
+      link.classList.toggle("is-active", active);
+      if (active) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  };
+  // A seleção acompanha o clique imediatamente; não mantém Início marcado junto.
+  navLinks.forEach(link => link.addEventListener("click", () => {
+    const section = $(link.getAttribute("href"));
+    if (section) setActive(section);
+  }));
   const initial = navLinks.find(link => link.hash === location.hash);
   if (initial) { const section = $(initial.hash); if (section) setActive(section); }
   if ("IntersectionObserver" in window && navSections.length) {
