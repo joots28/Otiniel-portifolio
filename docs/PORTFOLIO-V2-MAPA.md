@@ -7,7 +7,7 @@ Este documento é a referência principal para continuar o projeto em novas sess
 - Visitantes acessam livremente todos os conteúdos públicos; **não há login para visualizar projetos**.
 - Requisito de custo: R$ 0. Evitar banco de dados, backend, serviços pagos, painel administrativo e contas de colaboradores no escopo atual.
 - O proprietário edita o repositório; mudanças futuras devem ser feitas por meio do fluxo de trabalho combinado com o assistente. Não adicionar colaboradores nem criar contas administrativas para visitantes.
-- Hospedagem preferencial: GitHub Pages para arquivos estáticos, sem build obrigatório.
+- Hospedagem: GitHub Pages para arquivos estáticos, sem build obrigatório. Em 21/10/2026, o deploy verificado com sucesso está publicado a partir da branch `v2-foundation` (workflow `pages build and deployment`, commit `55eabaaa3394765d30cbe02b8603e8e2fe717406`). A `main` também contém a versão atualizada. Até alterar **Settings → Pages** para publicar `main` na raiz, sincronizar as alterações para `v2-foundation` em um único commit. O workflow personalizado redundante em `.github/workflows/deploy-pages.yml` foi removido porque falhava antes dos passos de deploy; não reintroduzi-lo.
 - E-mail público de contato: **otinieljonathan2804@gmail.com**. Não usar endereço anterior em links ou texto do site.
 - O formulário da versão atual abre o cliente de e-mail do visitante via `mailto:`; não prometer envio por servidor.
 
@@ -53,7 +53,8 @@ As ideias anteriores de painel administrativo com colaboradores, OAuth, MFA, ban
 - Sem TypeScript e sem dependências obrigatórias de build.
 
 ## Checklist de lançamento
-- [ ] Garantir que a branch configurada em Settings → Pages é a branch que recebe as atualizações e que a fonte selecionada corresponde ao método de deploy.
+- [x] Confirmar a branch de publicação atual: `v2-foundation`, com o workflow padrão do GitHub Pages concluído com sucesso em 21/10/2026.
+- [ ] Opcionalmente migrar Settings → Pages para `main` / root para eliminar a necessidade de manter ambas as branches sincronizadas.
 - [ ] Remover ou desativar workflows de Pages redundantes; manter apenas um método de publicação.
 - [ ] Conferir a execução do deploy e validar a URL realmente publicada antes de declarar sucesso.
 - [ ] Verificar links de CSS/JS e páginas de estudo de caso.
