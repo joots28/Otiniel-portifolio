@@ -48,7 +48,7 @@
       menuToggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
       siteNav.classList.toggle("is-open", open);
     });
-    $$('a[href^="#"]', siteNav).forEach(link => link.addEventListener("click", closeMenu));
+    $("a", siteNav).forEach(link => link.addEventListener("click", closeMenu));
     document.addEventListener("keydown", event => {
       if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
         closeMenu(); menuToggle.focus();
