@@ -90,7 +90,7 @@ Não é necessário instalar dependências para visualizar o site. Os efeitos 3D
 1. Clone o repositório e entre na pasta:
 
    ```bash
-   git clone https://github.com/joots28/Otiniel-portifolio.git
+   git clone --branch v2-foundation https://github.com/joots28/Otiniel-portifolio.git
    cd Otiniel-portifolio
    ```
 
