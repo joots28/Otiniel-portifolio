@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#090a0f">
+  <link rel="canonical" href="https://otiniel-portfolio-v2.onrender.com/">
   <meta name="description" content="Jonathan Otiniel — portfólio de desenvolvimento de sistemas, projetos web, APIs, dados e experiências digitais.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Jonathan Otiniel — Engenharia com intenção">
   <meta property="og:description" content="Projetos, decisões técnicas e evolução em desenvolvimento de software.">
-  <meta property="og:image" content="https://joots28.github.io/Otiniel-portifolio/assets/brand/otn-share.svg">
+  <meta property="og:image" content="https://otiniel-portfolio-v2.onrender.com/assets/brand/otn-share.svg">
   <meta name="twitter:card" content="summary_large_image">
   <title>Jonathan Otiniel — Portfólio</title>
   <link rel="icon" type="image/svg+xml" href="assets/brand/atom.svg">
@@ -203,13 +204,17 @@
     <section class="contact-section" id="contato" aria-labelledby="contactTitle">
       <div class="section-shell contact-layout">
         <div class="contact-copy"><p class="section-index mono">06 / CONTATO</p><p class="section-eyebrow">IDEIAS BONS COMEÇAM COM CONVERSAS</p><h2 id="contactTitle">Vamos construir<br><span>algo relevante.</span></h2><p>Para conversar sobre projetos, oportunidades, colaboração ou tecnologia, escolha um canal profissional ou prepare uma mensagem pelo formulário.</p><div class="contact-links"><a href="https://github.com/joots28" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/jonathan-otiniel-053a12290" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a href="mailto:otinieljonathan2804@gmail.com">E-mail <span aria-hidden="true">↗</span></a></div></div>
-        <form class="contact-form" id="contactForm">
-          <div class="form-topline mono"><span>FORM / CONTACT</span><span>NO BACKEND</span></div>
+        <form class="contact-form" id="contactForm" action="https://formsubmit.co/otinieljonathan2804@gmail.com" method="POST">
+          <div class="form-topline mono"><span>CONTACT / EMAIL</span><span>ENVIO SEGURO</span></div>
+          <input type="hidden" name="_subject" value="Novo contato pelo portfólio OTINIEL">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_url" value="https://otiniel-portfolio-v2.onrender.com/">
+          <div class="form-honey" aria-hidden="true"><label for="contactWebsite">Não preencha este campo</label><input id="contactWebsite" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
           <label for="contactName">Seu nome</label><input id="contactName" name="name" autocomplete="name" required maxlength="100" placeholder="Como posso te chamar?">
           <label for="contactEmail">Seu e-mail</label><input id="contactEmail" name="email" type="email" autocomplete="email" required maxlength="160" placeholder="voce@exemplo.com">
           <label for="contactMessage">Mensagem</label><textarea id="contactMessage" name="message" rows="4" required maxlength="4000" placeholder="Conte um pouco sobre o que você tem em mente..."></textarea>
-          <button class="button button-primary form-submit" type="submit">Preparar e-mail <span aria-hidden="true">↗</span></button>
-          <p class="form-note" id="formNote">O site não envia nem armazena a mensagem. O botão abre o aplicativo de e-mail para você revisar e enviar.</p>
+          <button class="button button-primary form-submit" type="submit">Enviar mensagem <span aria-hidden="true">↗</span></button>
+          <p class="form-note" id="formNote" role="status" aria-live="polite">As mensagens serão encaminhadas para meu e-mail profissional por um serviço de formulários externo. Na primeira utilização, o proprietário precisa confirmar a ativação recebida por e-mail. Seus dados serão processados por esse serviço.</p>
         </form>
       </div>
     </section>
