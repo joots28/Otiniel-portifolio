@@ -87,3 +87,31 @@ As ideias anteriores de painel administrativo com colaboradores, OAuth, MFA, ban
 - A prévia autônoma de QA foi testada em larguras de 320, 360, 390, 430, 768 e 1024 px; os testes observaram alinhamento central da navegação, ausência de overflow horizontal, alternância de tema e seleção da seção Projetos.
 - **Importante:** o teste da prévia autônoma não substitui a validação da aplicação servida pelo GitHub Pages. A verificação HTTP da URL de produção não pôde ser concluída neste ambiente por falha de resolução DNS; não considerar o novo deploy confirmado até abrir a rota publicada num navegador.
 
+
+
+## Implementação visual — 21/10/2026
+
+A direção visual foi transformada em ativos vetoriais e telas de referência para Figma e Canva.
+
+### Direção visual
+- Editorial cinematográfica / cyber-gothic refinada, tema escuro por padrão.
+- Paleta: Obsidian `#09090B`, Warm Ivory `#F3EFE7`, Dusty Violet `#8D75B7`, Soft Blue `#7CA6C9`, Surface `#111115`, Border `#38343F`.
+- Componentes: navegação glass, seletor de tema, CTA principal/secundário, cards de projetos, etiquetas de status e composição mobile com barra inferior.
+- Princípio de conteúdo: sem métricas inventadas; marcar projetos em desenvolvimento e distinguir projetos acadêmicos.
+
+### Telas de referência
+- Home desktop + mobile.
+- Listagem de projetos: EleiNexus, ChurchManager, SeguroGestor e OTINIEL Portfolio V1.
+- Estudo de caso EleiNexus.
+- Sobre / jornada / fundamentos técnicos.
+- Contato.
+- Prancha de design system: paleta, tipografia, botões, navegação e card.
+
+### Arquivos de design no repositório
+Todos os ativos ficam em `docs/design-assets/` na branch `v2-foundation`. Os SVGs foram adicionados como vetores ao arquivo Figma; o conjunto de telas também foi importado no Canva.
+
+- Figma — [OTINIEL Portfolio V2 — Design System & Responsive Experience](https://www.figma.com/design/bSKKZcpOLbpWfmaPdC2d5c).
+- Canva — [Telas do Site (edição)](https://www.canva.com/d/AQEqNhsFm0TaPjQ).
+- Canva — [Prancha Desktop + Mobile (edição)](https://www.canva.com/d/3xW7p-6_DLoE_mB).
+
+Observação técnica: o arquivo Canva inicialmente compartilhado era uma página concatenada/fixa que rejeitou inserção de elementos pela API. A geração por IA também estava sem cota. Para não deixar a tela em branco, os arquivos finais foram criados por importação de HTML estruturado em novos designs Canva. No Figma, as importações SVG retornaram IDs de nós; a verificação por screenshot/read-back ficou indisponível pelo limite de chamadas do plano Starter.
