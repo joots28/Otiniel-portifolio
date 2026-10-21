@@ -68,3 +68,100 @@ body { padding-bottom: 30px; }
   .bottom-nav, .hero-monogram, .art-orbit, .art-core { animation: none !important; }
   .reveal-ready .reveal-on-scroll { opacity: 1; transform: none; }
 }
+
+
+/* V2.2 — liquid navigation, cursor ambience and resilient mobile layout */
+body { isolation: isolate; }
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .22;
+  background: radial-gradient(420px circle at var(--pointer-x, 50vw) var(--pointer-y, 28vh), rgba(141,117,183,.18), transparent 72%);
+}
+.ambient { z-index: 0; opacity: .7; }
+.topbar { z-index: 5; }
+.section-shell, .site-footer { position: relative; z-index: 2; }
+.bottom-nav {
+  position: fixed !important;
+  z-index: 9999;
+  isolation: isolate;
+  transform: translateX(-50%);
+  animation: nav-opacity-in .45s ease-out both;
+  will-change: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  border-color: color-mix(in srgb, var(--accent) 32%, var(--line));
+  background: color-mix(in srgb, var(--surface) 73%, transparent);
+  -webkit-backdrop-filter: blur(28px) saturate(170%);
+  backdrop-filter: blur(28px) saturate(170%);
+  box-shadow: 0 18px 55px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.11), 0 0 28px var(--glow);
+}
+.bottom-nav::-webkit-scrollbar { display: none; }
+.bottom-nav::before {
+  z-index: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,.13), transparent 36%, rgba(141,117,183,.10) 73%, rgba(255,255,255,.035));
+}
+.bottom-nav::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  left: var(--liquid-left, 8px);
+  top: var(--liquid-top, 7px);
+  width: var(--liquid-width, 54px);
+  height: var(--liquid-height, 48px);
+  border-radius: var(--liquid-radius, 11px);
+  background:
+    radial-gradient(ellipse at 24% 12%, rgba(255,255,255,.34), transparent 44%),
+    linear-gradient(140deg, color-mix(in srgb, var(--accent) 32%, transparent), color-mix(in srgb, var(--accent-2) 13%, transparent));
+  border: 1px solid color-mix(in srgb, var(--accent) 44%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 0 22px var(--glow), 0 4px 16px rgba(0,0,0,.10);
+  -webkit-backdrop-filter: blur(10px) saturate(165%);
+  backdrop-filter: blur(10px) saturate(165%);
+  transition:
+    left .48s cubic-bezier(.22,1,.36,1),
+    width .38s cubic-bezier(.22,1,.36,1),
+    height .3s ease,
+    border-radius .3s ease,
+    background .3s ease;
+}
+.nav-item { position: relative; z-index: 1; flex: 0 0 auto; background: transparent; }
+.nav-item.is-active {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.nav-item.is-active .nav-icon { color: var(--text); text-shadow: 0 0 14px var(--accent); }
+.nav-item.is-active .nav-text small { color: var(--text); }
+.nav-item:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.project-case-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 15px; color: var(--accent); font: 500 11px var(--font-mono); letter-spacing: .03em; }
+.project-case-link:hover { color: var(--text); }
+@keyframes nav-opacity-in { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 540px) {
+  .bottom-nav {
+    bottom: max(10px, env(safe-area-inset-bottom));
+    width: calc(100vw - 20px);
+    max-width: 460px;
+    justify-content: flex-start;
+    gap: 2px;
+    padding: 6px;
+    transform: translateX(-50%);
+  }
+  .nav-item { min-height: 52px; padding: 8px 7px; justify-content: center; }
+  .nav-text { flex-direction: column; gap: 2px; font-size: 9px; line-height: 1.1; }
+  .nav-text small { font-size: 7px; }
+  .nav-icon { font-size: 18px; }
+}
+@media (hover: none), (pointer: coarse) {
+  body::after { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bottom-nav, .hero-monogram, .art-orbit, .art-core { animation: none !important; }
+  .bottom-nav::after { transition: none; }
+  .reveal-ready .reveal-on-scroll { opacity: 1; transform: none; }
+  body::after { display: none; }
+}
