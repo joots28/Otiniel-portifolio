@@ -58,22 +58,13 @@
   function updateLiquidIndicator(activeLink) {
     if (!nav || !activeLink) return;
 
-    // Em telas estreitas, mantém o item ativo visível dentro da barra rolável.
-    if (nav.scrollWidth > nav.clientWidth + 2) {
-      const targetLeft = activeLink.offsetLeft - Math.max(0, (nav.clientWidth - activeLink.offsetWidth) / 2);
-      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (typeof nav.scrollTo === "function") {
-        nav.scrollTo({ left: Math.max(0, targetLeft), behavior: reduced ? "auto" : "smooth" });
-      } else {
-        nav.scrollLeft = Math.max(0, targetLeft);
-      }
-    }
-
+    // Recalcula após a mudança de layout para manter o indicador alinhado.
     window.requestAnimationFrame(() => {
       const navRect = nav.getBoundingClientRect();
       const itemRect = activeLink.getBoundingClientRect();
-      nav.style.setProperty("--liquid-left", Math.max(0, itemRect.left - navRect.left - nav.clientLeft) + "px");
-      nav.style.setProperty("--liquid-width", itemRect.width + "px");
+      const left = itemRect.left - navRect.left - nav.clientLeft;
+      nav.style.setProperty("--liquid-left", Math.max(4, left) + "px");
+      nav.style.setProperty("--liquid-width", Math.max(24, itemRect.width) + "px");
       nav.style.setProperty("--liquid-height", Math.max(36, itemRect.height) + "px");
       nav.style.setProperty("--liquid-top", Math.max(3, itemRect.top - navRect.top - nav.clientTop) + "px");
     });
