@@ -194,3 +194,9 @@ body{font-size:17px;line-height:1.78}
   .case-panel p,.case-note{font-size:15px;line-height:1.9}
   .footer-bottom{font-size:10px}
 }
+
+@media(max-width:560px){
+  .case-panel small{font-size:11px}
+  .case-footer{font-size:10px;line-height:1.85}
+  .footer-bottom{font-size:10px;line-height:1.85}
+}
